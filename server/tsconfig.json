@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2016",                     
+    "module": "NodeNext",                         
+    "outDir": "./dist",                             
+    "rootDir": "./src",    
+    "sourceMap": true,            
+    "strict": true,
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+  },
+  "exclude":[
+    "./node_modules",
+    "./prisma/seed.ts"
+  ]
+}

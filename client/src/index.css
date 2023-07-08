@@ -1,0 +1,27 @@
+.dropdown-toggle::after {
+  display: none;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #aeaeae;
+}
+
+.link {
+  color: #3182ce;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
