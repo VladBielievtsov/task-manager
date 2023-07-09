@@ -20,14 +20,20 @@ function CustomRadio(props: any) {
       <input {...input} />
       <Box
         {...checkbox}
-        bg={"gray.200"}
+        bg={"transparent"}
         rounded={"md"}
+        border={"1px"}
+        borderColor={"#5a5a63"}
         p={1}
         px={4}
         display={"flex"}
         justifyContent={"center"}
         cursor={"pointer"}
-        _checked={{ color: "#fff", background: "#000" }}
+        _checked={{
+          color: "#fff",
+          background: "#49485b",
+          borderColor: "#49485b",
+        }}
       >
         {props.children}
       </Box>
@@ -47,9 +53,9 @@ export default function ProjectsList() {
   const group = getRootProps();
 
   return (
-    <Box>
+    <Box bg={"#2d2e39"} textColor={"white"} pt={"70px"}>
       <Box p={4}>
-        <Input placeholder="Search" />
+        <Input placeholder="Search" borderColor={"#5a5a63"} />
         <Flex {...group} gap={4} mt={4}>
           {values.map((item) => (
             <CustomRadio key={item} {...getRadioProps({ value: item })}>
@@ -58,7 +64,7 @@ export default function ProjectsList() {
           ))}
         </Flex>
       </Box>
-      <VStack overflowY={"auto"} h={"84.3vh"}>
+      <VStack overflowY={"auto"} h={"100vh"}>
         <ProjectItem />
       </VStack>
     </Box>

@@ -5,17 +5,12 @@ import { Link } from "react-router-dom";
 export default function ProjectItem() {
   return (
     <Link to={"/"} style={{ width: "100%" }}>
-      <Flex
-        w={"full"}
-        _hover={{ background: "#ebeefd" }}
-        borderBottom={"1px"}
-        borderColor={"gray.200"}
-        p={4}
-      >
+      <Flex w={"full"} _hover={{ background: "#33343f" }} p={4}>
         <Box>
           <Image
             borderRadius="full"
             boxSize="48px"
+            rounded={"xl"}
             src="https://bit.ly/dan-abramov"
             alt="Dan Abramov"
           />

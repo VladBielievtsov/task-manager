@@ -19,6 +19,7 @@ export const register = async (req: Request, res: Response) => {
         email: req.body.email,
         name: req.body.name,
         password: passwordHash,
+        avatarUrl: null,
       },
     });
 
@@ -45,6 +46,12 @@ export const login = async (req: Request, res: Response) => {
     const user = await prisma.user.findUnique({
       where: {
         email: req.body.email,
+      },
+      select: {
+        id: true,
+        email: true,
+        name: true,
+        password: true,
       },
     });
 
@@ -101,6 +108,68 @@ export const getMe = async (req: UserAuthInfoRequest, res: Response) => {
       });
     }
     res.json(user);
+  } catch (err: any) {
+    res.status(500).json({
+      msg: "No Access",
+    });
+  }
+};
+
+export const changeAvatar = async (req: UserAuthInfoRequest, res: Response) => {
+  try {
+    if (!req.userId) {
+      return res.status(401).json({
+        msg: "Unauthorized",
+      });
+    }
+    const user = await prisma.user.update({
+      where: {
+        id: +req.userId,
+      },
+      data: {
+        avatarUrl: req.body.avatarUrl,
+      },
+      select: {
+        avatarUrl: true,
+      },
+    });
+
+    res.json({ msg: "Profile image has been changed", avatar: user.avatarUrl });
+  } catch (err) {
+    res.status(500).json({
+      msg: "No Access",
+    });
+  }
+};
+
+export const updateProfile = async (
+  req: UserAuthInfoRequest,
+  res: Response
+) => {
+  try {
+    if (!req.userId) {
+      return res.status(401).json({
+        msg: "Unauthorized",
+      });
+    }
+
+    console.log(req.body);
+
+    const user = await prisma.user.update({
+      where: {
+        id: +req.userId,
+      },
+      data: {
+        name: req.body.name,
+        email: req.body.email,
+        lastname: req.body.lastname,
+        phone: req.body.phone,
+        address: req.body.address,
+        bio: req.body.bio,
+      },
+    });
+
+    res.json({ msg: "Profile has been updated", user });
   } catch (err: any) {
     res.status(500).json({
       msg: "No Access",

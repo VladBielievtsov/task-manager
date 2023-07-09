@@ -6,14 +6,7 @@ import ProjectsList from "../components/ProjectsList";
 export default function Home() {
   return (
     <Flex>
-      <Box
-        w="320px"
-        borderRight={"1px"}
-        position={"fixed"}
-        left={0}
-        top={81}
-        borderColor={"gray.200"}
-      >
+      <Box w="320px" position={"fixed"} left={0} top={0}>
         <ProjectsList />
       </Box>
       <Box flex="1"></Box>

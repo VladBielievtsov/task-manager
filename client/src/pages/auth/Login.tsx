@@ -80,20 +80,15 @@ export default function Login() {
 
   return (
     <Flex
-      bg={"#f8fafb"}
+      bg={"#26272e"}
       alignItems={"center"}
       justifyContent={"center"}
       h={"100vh"}
     >
-      <Box
-        w={"420px"}
-        p={4}
-        border={"1px"}
-        borderColor={"gray.200"}
-        rounded={"lg"}
-        bg={"white"}
-      >
-        <Heading mb={4}>Sign in</Heading>
+      <Box w={"500px"} p={6} rounded={"lg"} bg={"#2d2e39"}>
+        <Heading mb={4} textAlign={"center"}>
+          Sign in
+        </Heading>
         <form onSubmit={handleSubmit(onSubmit)}>
           {serverError && (
             <Text textColor={"red.400"} mb={4}>
@@ -106,6 +101,7 @@ export default function Login() {
               id="email"
               placeholder="email"
               type="email"
+              rounded={"lg"}
               {...register("email", {
                 required: "This is required",
                 minLength: { value: 4, message: "Minimum length should be 4" },
@@ -121,6 +117,7 @@ export default function Login() {
               id="password"
               placeholder="password"
               type="password"
+              rounded={"lg"}
               {...register("password", {
                 required: "This is required",
                 minLength: { value: 4, message: "Minimum length should be 4" },
@@ -132,17 +129,19 @@ export default function Login() {
           </FormControl>
           <Button
             mt={4}
-            colorScheme="blue"
+            colorScheme="messenger"
+            rounded={"lg"}
+            w={"full"}
             isLoading={isSubmitting}
             type="submit"
           >
             Sign in
           </Button>
         </form>
-        <Text mt={4} textAlign={"center"}>
+        <Text mt={4} textAlign={"center"} textColor={"gray.400"}>
           Don't have an account?{" "}
           <Link className="link" to={"/register"}>
-            Register
+            Create Account
           </Link>
         </Text>
       </Box>

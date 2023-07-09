@@ -1,3 +1,8 @@
+body {
+  background-color: #26272e !important;
+  color: white !important;
+}
+
 .dropdown-toggle::after {
   display: none;
 }
@@ -19,9 +24,11 @@
 }
 
 .link {
-  color: #3182ce;
+  color: #fff;
 }
 
 .link:hover {
   text-decoration: underline;
 }
+
+/* e2a97d */
